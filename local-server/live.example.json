@@ -1,0 +1,5 @@
+{
+  "accounts": [
+    { "name": "my-google-account", "url": "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", "key": "the SECRET you set in the script" }
+  ]
+}

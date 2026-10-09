@@ -1,0 +1,25 @@
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.6 var(--font);color:var(--text);background:var(--page);-webkit-font-smoothing:antialiased}
+[hidden]{display:none !important}
+#top{height:56px;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid var(--line);border-top:3px solid var(--brand)}
+h1{margin:0;font-size:19px;letter-spacing:-.01em} .tag{color:var(--muted);font-size:14px}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+.lead{margin:0 0 8px}
+section{padding:18px 0;border-top:1px solid var(--line)} section:first-of-type{border-top:0}
+h2{margin:0 0 6px;font-size:16px}
+label{display:flex;flex-direction:column;gap:6px;margin:12px 0 0;font-size:13px;font-weight:700;color:var(--muted)}
+input,select{padding:9px 12px;border:1px solid var(--line);border-radius:4px;background:#fff;font:inherit;font-size:14px;font-weight:400;color:var(--text);outline:none;width:100%}
+input:focus,select:focus,summary:focus-visible,button:focus-visible{border-color:var(--brand);box-shadow:0 0 0 3px var(--ring);outline:none}
+.hint{margin:6px 0 0;color:var(--muted);font-size:13px}
+code{background:var(--faint);padding:1px 5px;border-radius:3px;font-size:12px}
+button{font:inherit;cursor:pointer}
+.primary{background:var(--brand);color:var(--brand-ink);border:0;padding:9px 22px;border-radius:4px;font-weight:700} .primary:hover{background:var(--brand-dark)}
+.ghost{background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:4px} .ghost:hover{border-color:var(--brand);color:var(--brand)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.sticky{position:sticky;bottom:0;background:var(--page);padding:12px 0;border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:16px}
+#swatches{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.sw{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px}
+.sw i{width:18px;height:18px;border-radius:50%;background:var(--c)}
+.sw[aria-checked="true"]{border-color:var(--c);box-shadow:0 0 0 2px var(--c) inset}
+.ok{color:#15803d} .bad{color:var(--danger)}

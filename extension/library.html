@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lecture Scribe</title>
+<link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="library.css"></head>
+<body>
+<header id="top">
+  <h1>Lecture Scribe</h1>
+  <nav class="tools"><button id="coursesBtn" class="link">Course terms</button><button id="optionsBtn" class="link">Settings</button><button id="refresh" class="link" title="Reload">Refresh</button></nav>
+</header>
+<div id="layout">
+<aside id="side">
+  <div class="sidehead">Lectures</div>
+  <input id="q" type="search" placeholder="Search lectures and transcripts" autocomplete="off">
+  <div id="count"></div>
+  <div id="list" role="list"></div>
+</aside>
+
+<main id="main">
+  <div id="empty" class="placeholder">Select a lecture</div>
+  <article id="view" hidden>
+    <nav id="crumbs" class="crumbs"></nav>
+    <header class="head">
+      <div class="titles"><h2 id="title"></h2><p id="meta"></p></div>
+      <div class="actions">
+        <button id="study" class="primary">Study prompts</button>
+        <details class="more">
+          <summary aria-label="More actions">···</summary>
+          <div class="menu">
+            <button id="rename">Rename</button>
+            <button id="dl">Download transcript (.md)</button>
+            <button id="copy">Copy transcript</button>
+            <button id="audioDl">Download audio (.m4a)</button>
+            <button id="audioDrive" hidden>Save audio to export folder</button>
+            <button id="notes">Local AI notes</button>
+            <hr>
+            <button id="del" class="danger">Delete lecture</button>
+          </div>
+        </details>
+      </div>
+    </header>
+    <section id="notesBox" hidden><h3>Notes</h3><pre id="notesText"></pre></section>
+    <section id="transcript"></section>
+    <footer class="player">
+      <audio id="audio" controls preload="none"></audio>
+      <select id="rate" title="Playback speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+      <span id="part"></span>
+    </footer>
+  </article>
+</main>
+</div>
+
+<dialog id="coursesDlg">
+  <form method="dialog" class="dhead"><h3>Course term lists</h3><button class="link" aria-label="Close">Close</button></form>
+  <div class="dbody">
+    <p class="hint">Saved terms are used automatically for lectures with that course name, so names, standards and jargon are spelled correctly. A name matches loosely: "Biology" also covers "BIO101 Biology and Society".</p>
+    <div id="courseRows"></div>
+    <div class="drow"><input id="newCourse" placeholder="New course name"><button id="addCourse">Add</button></div>
+    <div class="drow"><select id="presetPick" aria-label="Subject preset"></select><button id="addPreset" class="link">Add from a subject preset (optional)</button><span id="presetMsg" class="hint"></span></div>
+  </div>
+</dialog>
+
+<dialog id="studyDlg">
+  <form method="dialog" class="dhead"><h3>Study prompts</h3><button class="link" aria-label="Close">Close</button></form>
+  <div class="dbody">
+    <label>Study mode<select id="mode"></select></label>
+    <label>Where will you use it?
+      <select id="tool">
+        <option value="paste">Gemini, ChatGPT or Claude (transcript included)</option>
+        <option value="nlm">NotebookLM (lecture added as a source)</option>
+      </select></label>
+    <label id="partWrap" hidden>This lecture is long. Part<select id="part2"></select></label>
+    <p id="modeHint" class="hint"></p>
+    <textarea id="promptText" readonly></textarea>
+    <div class="drow">
+      <button id="copyPrompt" class="primary">Copy prompt</button>
+      <a class="pill" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a>
+      <a class="pill" href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLM</a>
+      <a class="pill" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
+      <a class="pill" href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
+      <span id="wc"></span>
+    </div>
+  </div>
+</dialog>
+<script src="settings.js"></script>
+<script src="presets.js"></script>
+<script src="prompt-builder.js"></script>
+<script src="library.js"></script>
+<script src="study.js"></script>
+</body></html>

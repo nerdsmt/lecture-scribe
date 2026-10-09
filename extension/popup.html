@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="popup.css">
+<header><h1>Lecture Scribe</h1><button id="lib" class="link">Open library</button></header>
+<main>
+ <div id="banner" hidden>Almost ready: <button id="openOptions">open Settings</button> and paste the server token to connect.</div>
+ <div id="setup">
+  <label>Lecture title</label><input id="title" placeholder="Week 3, Lecture 1">
+  <label>Course</label><input id="course" list="courseList" placeholder="Course name" autocomplete="off"><datalist id="courseList"></datalist>
+  <label>Course terms (spelling help, saved for this course)</label><textarea id="terms" rows="2" placeholder="Names, jargon, formulas the lecturer will use, separated by commas"></textarea>
+  <div id="docWrap" hidden><label>Live Google Doc link (optional)</label><input id="docUrl" placeholder="https://docs.google.com/document/d/…"></div>
+  <label>Audio source</label>
+  <select id="mode"><option value="tab">Browser tab (Zoom, Teams, Meet, YouTube)</option><option value="mic">Microphone (in-person lecture)</option><option value="both">Tab and microphone</option></select>
+ </div>
+ <div id="consent">
+  <h2>Before you record</h2>
+  <p>Only record where you have permission. Laws and course rules about recording differ by country and by school, and many lecturers must agree first.</p>
+  <p>Keep recordings for your own study and do not share them. Transcripts stay on this computer unless you turn on an optional export. AI tools can make mistakes, so check anything important against the lecture.</p>
+  <button id="consentOk" class="btn">I understand, start recording</button>
+  <button id="consentCancel" class="btn secondary">Cancel</button>
+ </div>
+ <button id="go" class="btn">Start recording</button>
+ <button id="pause" class="btn secondary">Pause</button>
+ <div id="status"></div>
+ <div class="sec"><h2>Recent lectures</h2></div>
+ <div id="list"></div>
+</main>
+<script src="settings.js"></script>
+<script src="popup.js"></script>

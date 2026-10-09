@@ -1,0 +1,8 @@
+{
+  "port": 8787,
+  "token": "created automatically on first run - do not share it",
+  "whisper_model": "auto",
+  "export_dir": "",
+  "notes_model": "llama3.1:8b",
+  "keep_awake": true
+}

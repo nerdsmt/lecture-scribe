@@ -1,0 +1,14 @@
+/* Neutral look shared by the popup, library and options page: white, Moodle-style layout.
+   One variable (--accent) drives every highlight colour; the user picks it in Options. Always light. */
+:root{
+  color-scheme:light;
+  --accent:#2563eb;
+  --brand:var(--accent);
+  --brand-dark:color-mix(in srgb,var(--accent) 80%,#000);
+  --brand-ink:#fff;
+  --now:color-mix(in srgb,var(--accent) 9%,#fff);
+  --ring:color-mix(in srgb,var(--accent) 20%,transparent);
+  --page:#fff; --card:#fff; --side:#fafafa; --text:#212529; --muted:#6a737b; --faint:#f5f6f7; --line:#dee2e6;
+  --hl:#ffe69c; --danger:#b02a37; --shadow:0 8px 28px rgba(0,0,0,.14);
+  --font:Lato,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+}

@@ -1,0 +1,29 @@
+# Personal / private data: never commit these
+local-server/config.json
+local-server/courses.json
+local-server/live.json
+local-server/data/
+*.m4a
+*.webm
+*.wav
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / Cloudflare worker
+node_modules/
+worker/.wrangler/
+worker/.dev.vars
+.dev.vars
+.env
+.env.*
+
+# Swift / macOS
+mac-app/.build/
+mac-app/LectureScribe.app/
+.DS_Store
+
+# Google Apps Script (clasp)
+.clasp.json

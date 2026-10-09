@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Lecture Scribe",
+  "version": "0.1.0",
+  "description": "Record lectures (tab audio and/or microphone), transcribe them privately on your own computer, and build study prompts.",
+  "permissions": ["tabCapture", "offscreen", "storage", "activeTab", "power"],
+  "host_permissions": ["http://localhost:8787/*", "http://127.0.0.1:8787/*"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Lecture Scribe" },
+  "options_page": "options.html",
+  "minimum_chrome_version": "116"
+}

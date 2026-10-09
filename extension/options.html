@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lecture Scribe settings</title>
+<link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="options.css"></head>
+<body>
+<header id="top"><h1>Lecture Scribe</h1><span class="tag">Settings</span></header>
+<main>
+  <p class="lead">Lecture Scribe records a lecture, transcribes it <b>on your own computer</b> and builds study prompts for the AI tool you choose. These settings are stored only in this browser.</p>
+
+  <section>
+    <h2>1. About your studies</h2>
+    <p class="hint">Used to tailor the Study prompts. All optional, and you can change them any time.</p>
+    <label>Field of study<input id="field" list="fieldList" placeholder="e.g. Medicine, Law, Computer Science, History" autocomplete="off"></label>
+    <datalist id="fieldList"></datalist>
+    <p id="fieldNote" class="hint"></p>
+    <label>Country or jurisdiction<input id="country" placeholder="e.g. Canada, Germany, India (leave blank if it does not matter)" autocomplete="off"></label>
+    <label>Transcript language<input id="language" list="langList" placeholder="auto" autocomplete="off"></label>
+    <datalist id="langList"></datalist>
+    <p class="hint">"auto" lets Whisper detect the language of each 30 second part. Pick a language if the lecture is always in one language: it is more reliable.</p>
+  </section>
+
+  <section>
+    <h2>2. Local server</h2>
+    <p class="hint">Start the server first (see the README). It prints a token the first time it runs; you can show it again with <code>python server.py --show-token</code> inside <code>local-server</code>.</p>
+    <label>Server address<input id="workerUrl" placeholder="http://localhost:8787" autocomplete="off"></label>
+    <label>Token<input id="token" type="password" autocomplete="off" placeholder="paste the token from the server"></label>
+    <div class="row"><button id="show" class="ghost" type="button">Show token</button><button id="test" class="ghost" type="button">Test connection</button><span id="testMsg" class="hint"></span></div>
+  </section>
+
+  <section>
+    <h2>3. Colour</h2>
+    <div id="swatches" role="radiogroup" aria-label="Accent colour"></div>
+  </section>
+
+  <section>
+    <h2>4. Microphone</h2>
+    <p class="hint">Needed only for in-person lectures. Chrome asks once.</p>
+    <div class="row"><button id="mic" class="ghost" type="button">Grant microphone access</button><span id="micMsg" class="hint"></span></div>
+  </section>
+
+  <section>
+    <h2>5. Optional: export folder</h2>
+    <p class="hint">Off by default. If you choose a folder, every transcript is also saved there as a Markdown file. If that folder is inside Google Drive, OneDrive or Dropbox, that service uploads it to your cloud account, which is how you can add the files to NotebookLM from Drive. Leave this empty to keep everything only in <code>local-server/data</code>.</p>
+    <label>Detected folders<select id="exportPick"><option value="">(none - keep files only on this computer)</option></select></label>
+    <label>Or any folder (full path)<input id="exportDir" placeholder="C:\Users\you\Documents\Lectures   or   /Users/you/Documents/Lectures" autocomplete="off"></label>
+    <p id="exportMsg" class="hint"></p>
+  </section>
+
+  <section>
+    <details>
+      <summary>6. Advanced and optional: live Google Docs</summary>
+      <p class="hint">Writes each transcript part into a Google Doc of yours while you record. It needs a small script in your own Google account (see docs/OPTIONAL_GOOGLE_DOCS.md). Skip this unless you want it.</p>
+      <label>Web app URL<input id="liveUrl" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"></label>
+      <label>Secret<input id="liveKey" type="password" autocomplete="off" placeholder="the SECRET you set in your script"></label>
+    </details>
+  </section>
+
+  <div class="row sticky"><button id="save" class="primary" type="button">Save</button><span id="msg" class="hint"></span></div>
+</main>
+<script src="settings.js"></script>
+<script src="presets.js"></script>
+<script src="options.js"></script>
+</body></html>

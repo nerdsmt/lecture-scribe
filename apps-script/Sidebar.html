@@ -1,0 +1,25 @@
+<!doctype html><html><head><base target="_top">
+<style>
+ body{font:13px Arial;padding:10px;color:#202124}select,input,button{width:100%;box-sizing:border-box;margin:4px 0;padding:7px}
+ button{background:#1a73e8;color:#fff;border:0;border-radius:4px;cursor:pointer}button.alt{background:#e8eaed;color:#202124}
+ #msg{margin-top:8px;color:#5f6368}details{margin-top:12px}
+</style></head><body>
+<b>Lecture</b><select id="lec"></select>
+<button onclick="run('insertTranscript')">Insert transcript</button>
+<button onclick="run('insertNotes')">Insert AI study notes</button>
+<button class="alt" onclick="run('saveAudioToDrive')">Save audio to Drive</button>
+<div id="msg"></div>
+<details id="set"><summary>Settings</summary>
+ <input id="url" placeholder="Worker URL"><input id="tok" type="password" placeholder="API token">
+ <button class="alt" onclick="save()">Save</button></details>
+<script>
+ function msg(t){document.getElementById('msg').textContent=t}
+ function load(){google.script.run.withSuccessHandler(function(l){
+   var s=document.getElementById('lec');s.innerHTML='';
+   l.forEach(function(x){var o=document.createElement('option');o.value=x.id;o.textContent=(x.course?x.course+' – ':'')+x.title;s.appendChild(o)});
+   if(!l.length)msg('No lectures yet.');
+ }).withFailureHandler(function(e){msg('Configure settings below. '+e.message);document.getElementById('set').open=true}).listLectures()}
+ function run(fn){msg('Working…');google.script.run.withSuccessHandler(msg).withFailureHandler(function(e){msg('Error: '+e.message)})[fn](document.getElementById('lec').value)}
+ function save(){google.script.run.withSuccessHandler(function(){msg('Saved');load()}).saveSettings(document.getElementById('url').value,document.getElementById('tok').value)}
+ google.script.run.withSuccessHandler(function(s){document.getElementById('url').value=s.url}).getSettings();load();
+</script></body></html>

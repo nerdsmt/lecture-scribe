@@ -1,0 +1,9 @@
+{
+  "name": "lecture-scribe",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "ai": { "binding": "AI" },
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "lecture-scribe" }],
+  "observability": { "enabled": true }
+  // Set the shared secret with: npx wrangler secret put API_TOKEN
+}

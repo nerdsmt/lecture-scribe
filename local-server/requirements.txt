@@ -1,0 +1,4 @@
+# Pinned to versions known to work together. Do not loosen casually.
+faster-whisper==1.2.1
+# av is pinned on purpose: newer releases broke faster-whisper's audio decoding for the author.
+av==15.1.0
