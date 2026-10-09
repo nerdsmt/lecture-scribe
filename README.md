@@ -35,7 +35,7 @@ Status: tested on macOS. The Windows and Linux scripts are written but **not yet
 ### macOS and Linux
 
 ```bash
-git clone <this repository's address>
+git clone https://github.com/nerdsmt/lecture-scribe.git
 cd lecture-scribe
 ./install.sh
 ./local-server/start.sh
